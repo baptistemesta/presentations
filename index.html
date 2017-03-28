@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>CQRS event sourcing</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -21,24 +21,67 @@
 
 class: center, middle
 
-# Title
+# BPM engine with CQRS + Eventsourcing
 
 ---
 
-# Agenda
+# CQRS
+Command Query Responsibility Segregation
 
-1. Introduction
-2. Deep-dive
-3. ...
+.center[![:scale 75%](http://www.ouarzy.com/wp-content/uploads/2016/09/cqsr_pattern.png)]
+
 
 ---
 
-# Introduction
+# CQRS Event sourcing
+
+source of truth is the events
+
+.center[![:scale 60%](http://blog.clever-age.com/wp-content/uploads/2014/00/png/cqrsschema.png)]
+
+
+---
+
+# Akka
+
+Actor model:
+.center[![:scale 60%](http://blog.scottlogic.com/rdoyle/assets/ActorModel.png)]
+
+
+---
+
+# Akka persistence
+
+add persistence for event
+.center[![:scale](https://www.packtpub.com/sites/default/files/Article-Images/B05567_04_02.png)]
+
+
+---
+
+# The POC
+
+## Done
+
+- create a case using REST api
+- save the event "case created"
+- recover event on start
+
+## TODO
+
+- have a view to list processes
+- update the "read side" when event arrives
+
+--> demo
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
     <script>
+
+    remark.macros['scale'] = function (percentage) {
+      var url = this;
+      return '<img src="' + url + '" style="width: ' + percentage + '" />';
+    };
       var slideshow = remark.create();
     </script>
   </body>
